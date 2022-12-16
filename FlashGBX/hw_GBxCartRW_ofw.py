@@ -192,6 +192,10 @@ class GbxDevice:
 					dev.close()
 					self.DEVICE = None
 					return False
+				elif (self.FW[1] == 4 and self.FW[0] == 18):
+					#Flash Boy Cyclone v3.2
+					conn_msg.append([0, "{:s}Potential Flash Boy Cyclone v3.2 detected -- Unsupported, proceed with caution!{:s}".format(ANSI.YELLOW, ANSI.RESET)])
+					pass
 				elif (self.FW[1] == 100 and self.FW[0] < 26 and self.FW[0] != 20):
 					self.FW_UPDATE_REQ = True
 				elif (self.FW[1] == 90 and self.FW[0] < 30):
